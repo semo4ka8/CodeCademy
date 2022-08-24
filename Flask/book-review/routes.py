@@ -20,5 +20,5 @@ def books(year):
 
 @app.route('/reviews/<int:review_id>')
 def reviews(review_id):
-    #your code here
+    review = Review.query.filter_by(id = review_id).first_or_404(description = "There is no review with this ID.")
     return render_template('_review.html', review = review)
